@@ -4,18 +4,25 @@ import Child from './Child'
 
 class Parent extends Component {
 
-  constructor() {
+  constructor(newChildColor) {
     super()
     this.state = {
-      color: getRandomColor()
+      color: getRandomColor(),
+      childrenColor: newChildColor
     }
+  }
+
+  changeColor = (event) => {
+    this.setState({
+      color: getRandomColor()
+    })
   }
 
   render() {
     return (
       <div className="parent" style={{backgroundColor: this.state.color}}>
-        <Child />
-        <Child />
+        <Child handleColorChange={this.changeColor}/>
+        <Child handleColorChange={this.changeColor}/>
       </div>
     )
   }
