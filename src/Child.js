@@ -7,6 +7,7 @@ class Child extends Component {
       <div
         className="child"
         style={{backgroundColor: "#FFF"}}
+        onClick={this.props.handleClickColor}
       ></div>
     )
   }
